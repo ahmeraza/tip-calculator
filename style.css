@@ -1,1 +1,357 @@
-/* styles coming in commit 2 */
+/* ============================================
+   CSS TOKENS
+   ============================================ */
+:root {
+  --bg: #f5f2ee;
+  --card-bg: #1a1a1a;
+  --card-bg-output: #111111;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6560;
+  --text-on-dark: #f5f2ee;
+  --text-muted: #9e9890;
+  --accent: #c8a96e;
+  --accent-hover: #d4b87e;
+  --error: #e05c5c;
+  --segment-bg: #2a2a2a;
+  --segment-active: #c8a96e;
+  --segment-active-text: #1a1a1a;
+  --border: #2e2e2e;
+  --input-bg: #242424;
+  --input-focus: #c8a96e;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --font-display: 'DM Mono', 'Courier New', monospace;
+  --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px 60px;
+}
+
+/* ============================================
+   GOOGLE FONTS IMPORT
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.app {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.app-header {
+  padding: 8px 4px;
+}
+
+.app-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.app-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+}
+
+.output-card {
+  background: var(--card-bg-output);
+}
+
+/* ============================================
+   FIELD GROUPS
+   ============================================ */
+.field-group {
+  margin-bottom: 24px;
+}
+
+.field-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   INPUT WRAPPER
+   ============================================ */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+  border-color: var(--input-focus);
+}
+
+.input-wrapper.has-error {
+  border-color: var(--error);
+}
+
+.input-prefix,
+.input-suffix {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 0 12px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.field-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  color: var(--text-on-dark);
+  padding: 14px 12px;
+  width: 100%;
+  -moz-appearance: textfield;
+}
+
+.field-input::-webkit-outer-spin-button,
+.field-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.field-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* ============================================
+   SEGMENTED CONTROL
+   ============================================ */
+.segmented-control {
+  display: flex;
+  background: var(--segment-bg);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.segment {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.segment:hover:not(.is-active) {
+  color: var(--text-on-dark);
+  background: rgba(255,255,255,0.06);
+}
+
+.segment.is-active {
+  background: var(--segment-active);
+  color: var(--segment-active-text);
+}
+
+.segment:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   CUSTOM TIP WRAPPER
+   ============================================ */
+.custom-tip-wrapper {
+  margin-top: 0;
+}
+
+/* ============================================
+   FIELD ERROR
+   ============================================ */
+.field-error {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--error);
+  margin-top: 6px;
+  min-height: 1em;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+
+.field-error.is-visible {
+  opacity: 1;
+}
+
+/* ============================================
+   RESET BUTTON
+   ============================================ */
+.reset-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.reset-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.reset-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   OUTPUT PANEL
+   ============================================ */
+.output-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.output-row--highlight {
+  margin-top: 4px;
+}
+
+.output-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.output-value {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-on-dark);
+}
+
+.output-value--hero {
+  font-size: 1.75rem;
+  color: var(--accent);
+}
+
+.output-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+.rounding-note {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 20px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+/* ============================================
+   RESPONSIVE — 360px mobile
+   ============================================ */
+@media (max-width: 400px) {
+  body {
+    padding: 24px 12px 48px;
+  }
+
+  .card {
+    padding: 22px 18px;
+  }
+
+  .app-title {
+    font-size: 1.25rem;
+  }
+
+  .output-value--hero {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — 1440px desktop
+   ============================================ */
+@media (min-width: 900px) {
+  body {
+    align-items: center;
+    padding: 0 16px;
+    min-height: 100vh;
+  }
+
+  .app {
+    max-width: 440px;
+  }
+}
