@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+
+      <header class="app-header">
+        <h1 class="app-title">Tip Calculator</h1>
+        <p class="app-subtitle">Split any bill, instantly.</p>
+      </header>
+
+      <section class="card inputs-card" aria-label="Bill inputs">
+
+        <!-- Bill Amount -->
+        <div class="field-group" id="group-bill">
+          <label class="field-label" for="bill">Bill Amount</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">Rs</span>
+            <input
+              type="number"
+              id="bill"
+              class="field-input"
+              placeholder="0"
+              min="0"
+              step="any"
+              inputmode="decimal"
+              autocomplete="off"
+            />
+          </div>
+          <span class="field-error" id="error-bill" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Tip Percentage -->
+        <div class="field-group" id="group-tip">
+          <label class="field-label">Tip Percentage</label>
+          <div class="segmented-control" role="group" aria-label="Tip percentage presets">
+            <button class="segment" data-value="10" type="button" aria-pressed="false">10%</button>
+            <button class="segment" data-value="15" type="button" aria-pressed="false">15%</button>
+            <button class="segment" data-value="20" type="button" aria-pressed="false">20%</button>
+          </div>
+          <div class="input-wrapper custom-tip-wrapper">
+            <input
+              type="number"
+              id="custom-tip"
+              class="field-input"
+              placeholder="Custom %"
+              min="0"
+              max="60"
+              step="any"
+              inputmode="decimal"
+              autocomplete="off"
+              aria-label="Custom tip percentage"
+            />
+            <span class="input-suffix">%</span>
+          </div>
+          <span class="field-error" id="error-tip" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Number of People -->
+        <div class="field-group" id="group-people">
+          <label class="field-label" for="people">Number of People</label>
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="people"
+              class="field-input"
+              placeholder="1"
+              min="1"
+              max="100"
+              step="1"
+              inputmode="numeric"
+              autocomplete="off"
+            />
+            <span class="input-suffix">people</span>
+          </div>
+          <span class="field-error" id="error-people" role="alert" aria-live="polite"></span>
+        </div>
+
+        <!-- Reset -->
+        <button class="reset-btn" id="reset" type="button" aria-label="Reset all fields">
+          Reset
+        </button>
+
+      </section>
+
+      <!-- Output Panel -->
+      <section class="card output-card" aria-label="Calculation results" aria-live="polite">
+        <div class="output-row">
+          <span class="output-label">Tip Amount</span>
+          <span class="output-value" id="out-tip">Rs —</span>
+        </div>
+        <div class="output-divider"></div>
+        <div class="output-row">
+          <span class="output-label">Grand Total</span>
+          <span class="output-value" id="out-total">Rs —</span>
+        </div>
+        <div class="output-divider"></div>
+        <div class="output-row output-row--highlight">
+          <span class="output-label">Per Person</span>
+          <span class="output-value output-value--hero" id="out-per-person">Rs —</span>
+        </div>
+        <p class="rounding-note">Amounts rounded up so the group never underpays.</p>
+      </section>
+
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
