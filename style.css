@@ -52,11 +52,6 @@ body {
 }
 
 /* ============================================
-   GOOGLE FONTS IMPORT
-   ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap');
-
-/* ============================================
    LAYOUT
    ============================================ */
 .app {
@@ -354,4 +349,39 @@ body {
   .app {
     max-width: 440px;
   }
+}
+
+ /* ============================================
+   TRANSITIONS & POLISH
+   ============================================ */
+.output-value {
+  transition: color 0.2s ease;
+}
+
+.field-input:focus {
+  caret-color: var(--accent);
+}
+
+.input-wrapper {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrapper:focus-within {
+  box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.12);
+}
+
+.segment {
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.segment:active {
+  transform: scale(0.97);
+}
+
+.reset-btn {
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: rgba(200, 169, 110, 0.06);
 }
