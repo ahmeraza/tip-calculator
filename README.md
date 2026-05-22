@@ -1,8 +1,14 @@
-# Tip Calculator
+# Tip Calculator 🧾
+
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![No Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen?style=flat-square)
+![GitHub Pages](https://img.shields.io/badge/deployed-GitHub%20Pages-222222?style=flat-square&logo=github)
 
 A clean, single-screen tip calculator and bill splitter built for the Dev Weekends Fellowship 2026 assessment.
 
-Enter a bill amount, select a tip percentage, and split across any number of people — the results update instantly as you type. No calculate button, no page reloads.
+Enter a bill amount, select a tip percentage, and split across any number of people — results update instantly as you type. No calculate button, no page reloads.
 
 ---
 
@@ -48,7 +54,7 @@ No npm install. No config files. One command.
 
 ## Live Demo
 
-[https://ahmeraza.github.io/tip-calculator](https://ahmeraza.github.io/tip-calculator)
+🔗 [https://ahmeraza.github.io/tip-calculator](https://ahmeraza.github.io/tip-calculator)
 
 ---
 
